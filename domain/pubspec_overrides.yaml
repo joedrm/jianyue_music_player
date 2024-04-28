@@ -1,0 +1,7 @@
+# melos_managed_dependency_overrides: analyzer,build_resolvers,dart_style,shared
+dependency_overrides:
+  analyzer: 5.2.0
+  build_resolvers: 2.1.0
+  dart_style: 2.2.4
+  shared:
+    path: ../shared

@@ -1,0 +1,36 @@
+name: jianyue_music_player
+
+packages:
+  - app/**
+  - shared/**
+  - domain/**
+
+command:
+  bootstrap:
+    usePubspecOverrides: true
+
+
+scripts:
+  analyze:
+    run: dart pub global run melos exec --flutter "flutter analyze --no-pub --suppress-analytics"
+    description: Run analyze.
+
+  pub_get:
+    run: dart pub global run melos exec --flutter "flutter pub get"
+    description: pub get
+
+  build_all:
+    run: dart pub global run melos exec --depends-on="build_runner" "flutter packages pub run build_runner build --delete-conflicting-outputs"
+    description: build_runner build all modules.
+
+  build_app:
+    run: dart pub global run melos exec --fail-fast --scope="*app*" --depends-on="build_runner" "flutter packages pub run build_runner build --delete-conflicting-outputs"
+    description: build_runner build app module.
+
+  build_shared:
+    run: dart pub global run melos exec --fail-fast --scope="*shared*" --depends-on="build_runner" "flutter packages pub run build_runner build --delete-conflicting-outputs"
+    description: build_runner build shared module.
+
+  build_domain:
+    run: dart pub global run melos exec --fail-fast --scope="*domain*" --depends-on="build_runner" "flutter packages pub run build_runner build --delete-conflicting-outputs"
+    description: build_runner build domain module.
